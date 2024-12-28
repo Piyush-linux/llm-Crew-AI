@@ -1,0 +1,48 @@
+design_curriculum:
+  description: >
+    Create a structured curriculum for {subject} considering:
+        - Student Level: {student_level}
+        - Learning Goals: {goals}
+        - Break down into modules and sub-topics
+        - Estimate time requirements
+        - Identify prerequisites
+  agent: curriculum_designer
+  validation:
+    - Ensure modules align with {goals}.
+    - Verify that all prerequisites are listed.
+  expected_output:
+    A detailed curriculum including modules, topics, objectives, estimated time, and prerequisites.
+
+curate_resources:
+  description: >
+    Based on the curriculum structure, find appropriate learning resources:
+        - Find relevant tutorials, documentation, and exercises
+        - Ensure resources match the student level
+        - Include a mix of theoretical and practical materials
+        - Validate resource quality and accessibility
+        Use the curriculum from previous task: {{design_curriculum.output}}
+  agent: resource_curator
+  validation:
+    - Check resource links for accessibility.
+    - Ensure a balance of content types (e.g., video, text, exercises).
+  expected_output:
+    A curated set of learning resources for each module and topic in the curriculum.
+    
+create_assessments:
+  description: >
+    Design a comprehensive progress tracking system:
+        - Create assessment criteria for each module
+        - Define success metrics
+        - Design practical exercises and projects
+        - Create a progress tracking template
+        Based on:
+        Curriculum: {{design_curriculum.output}}
+        Resources: {{curate_resources.output}}
+  agent: progress_tracker
+  validation:
+    - Ensure each module has at least one assessment.
+    - Verify that exercises align with module content.
+    - Confirm progress tracking template includes all modules.
+  expected_output:
+    A complete assessment and progress tracking plan for the curriculum.
+    

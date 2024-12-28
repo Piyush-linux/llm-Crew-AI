@@ -1,0 +1,79 @@
+# Logs
+logs/
+*.log
+*.out
+*.err
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Cache files
+.cache/
+*.cache
+*.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+.env.*
+
+# AI/ML model files
+*.h5
+*.ckpt
+*.onnx
+*.tflite
+*.pb
+*.joblib
+*.pickle
+
+# Dataset or large data files
+data/
+*.csv
+*.tsv
+*.jsonl
+*.parquet
+
+# Streamlit or other Python app configs
+.streamlit/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.pid
+*.pid.lock
+
+# Editor directories and files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# CrewAI-specific directories and files
+crewai_logs/
+crewai_data/
+crewai_cache/
+crewai_models/
+
