@@ -1,0 +1,51 @@
+research_task: 
+  description: >
+    Analyze the YouTube video {topic}.
+    Extract video information, transcript, and perform
+    sentiment analysis. Compile all findings.
+  expected_output: >
+    - Video Title: {extracted title of the video}
+    - Video Description: {extracted description provided by the video uploader}
+    - Video Duration: {length of the video in HH:MM:SS format}
+    - Key Topics: {list of primary topics covered in the video}
+    - Transcript Summary: {brief summary of the transcript content}
+    - Sentiment Analysis: {dominant sentiment and emotional tone of the video}
+    - Key Takeaways: {list of 5-7 main points derived from the video content}
+    - Audience Insights: {analysis of the intended audience or demographic}
+    - Quality Assessment: {evaluation of the video’s content quality}
+    - Recommendations: {suggestions for using or improving the video content}
+  agent: research_analyst
+
+
+writing_task:
+  description: >
+    Using the research findings, create a well-structured
+    blog post. Include an engaging introduction, main points
+    from the video, and a conclusion.
+  expected_output: >
+    - Engaging Introduction: {compelling opening paragraph that introduces the video’s topic and purpose}
+    - Main Points: {well-organized section presenting the key takeaways and insights from the video, supported with examples and clear explanations}
+    - Conclusion: {summary of the video’s impact or value, and a call to action or final thoughts}
+    - Formatting: {clear headings, subheadings, and bullet points to improve readability}
+    - Tone: {appropriate tone that aligns with the video’s content and intended audience}
+    - Call to Action: {encouragement for readers to engage further, whether by watching the video, leaving comments, or sharing the blog}
+  agent: content_writer
+
+
+editing_task:
+  description: >
+    Review and polish the blog post. Ensure proper formatting,
+    add headers and subheaders, and optimize for readability.
+    Return the final version.
+  expected_output: >
+    - Proper Formatting: {ensure consistent font size, spacing, and alignment throughout the post}
+    - Headings & Subheadings: {clear and informative headers for each section, making the content easy to navigate}
+    - Paragraph Structure: {break long paragraphs into shorter ones to enhance readability}
+    - Grammar & Style: {correct any grammatical errors, improve sentence structure, and maintain a consistent tone}
+    - Readability: {simplify complex sentences and ensure smooth flow of ideas}
+    - Visual Enhancements: {add relevant images, charts, or media if necessary, and ensure proper placement}
+    - SEO Optimization: {incorporate keywords and meta descriptions to improve search engine ranking}
+    - Final Review: {ensure the blog is clear, engaging, and free from errors before submitting the final version}
+  agent: content_editor
+
+
