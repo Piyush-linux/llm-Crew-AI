@@ -1,54 +1,113 @@
-# Crewbot Crew
+# CrewAI Project
 
-Welcome to the Crewbot Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+Welcome to the **CrewAI Project**! This project leverages the powerful CrewAI framework to define agents and tasks for automating workflows in a structured, extensible manner. The code demonstrates a `Crewbot` implementation, showcasing agents and tasks designed for curriculum design, resource curation, and progress tracking.
+
+## Features
+
+- **Agents**: Modular and reusable components for specific tasks like curriculum design, resource curation, and progress tracking.
+- **Tasks**: Structured workflows with output files for efficient task management.
+- **Crew**: A collection of agents and tasks executed in a sequential or hierarchical process.
+- **Customizable Configuration**: YAML-based configuration files for agents and tasks for easy customization.
+
+## File Structure
+
+```yml
+.
+crewbot/
+├── .venv
+├── knowledge/
+├── src
+│   ├── crewbot
+│   │   ├── config/
+│   │   │   ├── agents.yml 
+│   │   │   ├── tasks.yml
+│   │   ├── main.py # Entry point for the Crewbot implementation
+│   │   ├── crew.py
+├── .venv
+├── .gitignore # Ignore unnecessary files and directories
+├── README.md
+```
 
 ## Installation
 
-Ensure you have Python >=3.10 <=3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/<your-github-username>/crewai-project.git
+   cd crewai-project
+   ```
 
-First, if you haven't already, install uv:
+2. Install dependencies:
+   ```bash
+   pip install crewai
+   ```
 
-```bash
-pip install uv
-```
+## Usage
 
-Next, navigate to your project directory and install the dependencies:
+1. Configure agents and tasks using YAML files in the `config/` directory.
+2. Run the Crewbot implementation:
+   ```bash
+   
+   ```
 
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
-crewai install
-```
-### Customizing
+## Key Concepts
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+### Agents
 
-- Modify `src/crewbot/config/agents.yaml` to define your agents
-- Modify `src/crewbot/config/tasks.yaml` to define your tasks
-- Modify `src/crewbot/crew.py` to add your own logic, tools and specific args
-- Modify `src/crewbot/main.py` to add custom inputs for your agents and tasks
+Agents are autonomous units in the CrewAI ecosystem. In this project, agents are configured in `agents.yaml` and can be extended using tools as per requirements.
 
-## Running the Project
+- Example agent setup:
+  ```python
+  @agent
+  def curriculum_designer(self) -> Agent:
+      return Agent(
+          config=self.agents_config['curriculum_designer'],
+          verbose=True
+      )
+  ```
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+### Tasks
 
-```bash
-$ crewai run
-```
+Tasks define specific actions performed by agents. Outputs are saved to files for review and further use.
 
-This command initializes the crewbot Crew, assembling the agents and assigning them tasks as defined in your configuration.
+- Example task setup:
+  ```python
+  @task
+  def design_curriculum(self) -> Task:
+      return Task(
+          config=self.tasks_config['design_curriculum'],
+          output_file='design_curriculum.md'
+      )
+  ```
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+### Crew
 
-## Understanding Your Crew
+The Crew groups agents and tasks and manages their execution order using a `Process`.
 
-The crewbot Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+- Example crew setup:
+  ```python
+  @crew
+  def crew(self) -> Crew:
+      return Crew(
+          agents=self.agents,
+          tasks=self.tasks,
+          process=Process.sequential,
+          verbose=True
+      )
+  ```
 
-## Support
+## Documentation
 
-For support, questions, or feedback regarding the Crewbot Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+- [CrewAI Concepts: Crews](https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators)
+- [CrewAI Concepts: Agents](https://docs.crewai.com/concepts/agents#yaml-configuration-recommended)
+- [CrewAI Concepts: Tasks](https://docs.crewai.com/concepts/tasks#overview-of-a-task)
 
-Let's create wonders together with the power and simplicity of crewAI.
+## Contributing
+
+Contributions are welcome! Feel free to fork this repository, make changes, and submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Author
+Developed by [Piyush](https://github.com/Piyuhs-linux).
