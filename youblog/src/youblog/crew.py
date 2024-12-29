@@ -1,7 +1,9 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from tools import yt_tool
+# from tools import yt_tool
+from crewai_tools import YoutubeChannelSearchTool
 
+yt_tool = YoutubeChannelSearchTool(youtube_channel_handle='@krishnaik06')
 # If you want to run a snippet of code before or after the crew starts, 
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
@@ -53,12 +55,14 @@ class Youblog():
 	def writing_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['writing_task'],
+			tools=[yt_tool],
 		)
 
 	@task
 	def editing_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['editing_task'],
+			tools=[yt_tool],
 			output_file='blog.md'
 		)
 
