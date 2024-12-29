@@ -29,15 +29,16 @@ The goal is to streamline the process of creating effective learning paths for a
 - **Comprehensive Output**: A complete learning path with modules, resources, and assessment plans.
 
 ## Usage
-
-1. Install the required dependencies:
+0. Pre installed (crewai)
+1. Create venv
+2. Install the required dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Define your inputs: `main.py`
+3. Define your inputs: `main.py`
 
-3. Run the system:
+4. Run the system:
 ```bash
 crew run
 ```

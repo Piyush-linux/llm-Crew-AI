@@ -45,21 +45,21 @@ class Crewbot():
 	def design_curriculum(self) -> Task:
 		return Task(
 			config=self.tasks_config['design_curriculum'],
-			output_file='design_curriculum.md'
+			output_file='output/design_curriculum.md'
 		)
 
 	@task
 	def curate_resources(self) -> Task:
 		return Task(
 			config=self.tasks_config['curate_resources'],
-			output_file='curate_resources.md'
+			output_file='output/curate_resources.md'
 		)
 
 	@task
 	def create_assessments(self) -> Task:
 		return Task(
 			config=self.tasks_config['create_assessments'],
-			output_file='create_assessments.md'
+			output_file='output/create_assessments.md'
 		)
 
 	@crew
